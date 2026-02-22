@@ -91,6 +91,7 @@ def main():
         num_events_processed = 0
         
         matched_data = {var: ([], []) for var in variables_to_plot}
+        delta_r_values = []
 
         # --- Event Loop ---
         for event in sorted(list(common_events)):
@@ -151,6 +152,7 @@ def main():
                 if best_match_idx != -1:
                     used_prompt_indices.add(best_match_idx)
                     matched_pairs += 1
+                    delta_r_values.append(best_match_dr)
                     for var in variables_to_plot:
                         matched_data[var][0].append(hlt_cands[var][hlt_cand_idx])
                         matched_data[var][1].append(prompt_cands[var][best_match_idx])
@@ -168,6 +170,15 @@ def main():
         # --- Plotting ---
         if total_matched_pairs > 0:
             create_plots(pdg_id, **matched_data)
+
+            plt.figure()
+            plt.hist(delta_r_values, bins=100)
+            plt.xlabel("$\Delta R$")
+            plt.ylabel("Number of Matched Pairs")
+            plt.title(f"$\Delta R$ Distribution for Matched Pairs (PDG ID {pdg_id})")
+            plt.yscale('log')
+            plt.savefig(f"delR_distribution_{id_str}.png")
+            plt.close()
 
 if __name__ == "__main__":
     main()
