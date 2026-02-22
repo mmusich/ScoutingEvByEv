@@ -41,6 +41,11 @@ def main():
 
         for key, values in kwargs.items():
             diff = np.array(values[1]) - np.array(values[0])
+
+            # Check if all values in diff are zero, and skip if so
+            if np.all(diff == 0):
+                print(f"Skipping plot for {key} (PDG ID {pdg_id}) as all values are zero.")
+                continue
             mean_diff = np.mean(diff)
             std_diff = np.std(diff)
             plot_range = (mean_diff - 3 * std_diff, mean_diff + 3 * std_diff)
