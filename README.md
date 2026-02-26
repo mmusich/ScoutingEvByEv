@@ -13,13 +13,14 @@ The goal is to be able to do event by event comparison on scouting output for th
 scram project -n scoutingEvByEv CMSSW_15_0_14
 cd CMSSW_15_0_14/src
 cmsenv
-scram b -j
+git cms-init
 git clone git@github.com:jprendi/ScoutingEvByEv.git
 cp ScoutingEvByEv/printTree* ScoutingEvByEv/getScoutingFile.sh .
 chmod +x getScoutingFile.sh
 ./getScoutingFile.sh # this gives as an output the scouting-root-file needed!
 mkdir -p Scouting/Ntuplizer
 cp -r ScoutingEvByEv/plugins ScoutingEvByEv/python Scouting/Ntuplizer
+scram b -j
 cmsRun Scouting/Ntuplizer/python/scoutingcollectionntulizer_cfg.py inputFiles=file:outputLocalTestDataScouting.root
 ```
 for which we can use `inputFiles`, `outputFile` and `numEvents` are the input parameters one can give it. Alternatively one can edit this in the python config file directly!
