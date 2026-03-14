@@ -5,7 +5,7 @@ params = VarParsing('analysis')
 
 params.setDefault('inputFiles', 'file:/eos/user/j/jprendi/scoutingEvByEv/src/outputLocalTestDataScouting.root')
 params.setDefault('outputFile', 'output.root')
-params.setDefault('maxEvents', 100)
+params.setDefault('maxEvents', -1)
 
 params.parseArguments()
 
