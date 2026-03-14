@@ -7,7 +7,7 @@ hltGetConfiguration /users/musich/tests/dev/CMSSW_15_0_0/NGT_DEMONSTRATOR/TestDa
             --output all \
             --max-events -1\
             --eras Run3_2024 --l1-emulator uGT --l1 L1Menu_Collisions2025_v1_0_0_xml \
-            --input /store/data/Run2025E/EphemeralHLTPhysics0/RAW/v1/000/396/058/00000/0ceac4e4-e378-48ce-9aee-24a60aec59d2.root \
+            --input /store/data/Run2025G/EphemeralHLTPhysics0/RAW/v1/000/398/183/00000/002bbd0c-b9ed-4758-b7a6-e2e13149ca34.root  \
             > hltData.py
 
 cmsRun hltData.py
