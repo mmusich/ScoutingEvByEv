@@ -11,7 +11,7 @@ The goal is to be able to do event by event comparison on scouting output for th
 
 ```
 scram project -n scoutingEvByEv CMSSW_15_0_14
-cd CMSSW_15_0_14/src
+cd scoutingEvByEv/src
 cmsenv
 git cms-init
 git clone git@github.com:jprendi/ScoutingEvByEv.git
